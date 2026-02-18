@@ -53,11 +53,11 @@ namespace methods
             Console.Clear();
             if (drawChoice == 1)
                 DrawBus();
-            if (drawChoice == 2)
+            else if (drawChoice == 2)
                 DrawApple();
-            if (drawChoice == 3)
+            else if (drawChoice == 3)
                 DrawSword();
-            if (drawChoice == 4)
+            else if (drawChoice == 4)
                 DrawClover();
         }
 
