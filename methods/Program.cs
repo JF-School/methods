@@ -6,12 +6,22 @@ namespace methods
     {
         static void Main(string[] args)
         {
-            //DrawChoice();
+            DrawChoice();
+            Console.WriteLine();
+            Console.WriteLine("Press [ENTER] to continue");
+            Console.ReadLine();
+            Console.Clear();
 
             while (!Joke())
                 Console.Clear();
+
+            Thread.Sleep(1000);
+            Console.WriteLine("Press [ENTER] to end the program");
+            Console.ReadLine();
+            Console.Clear();
         }
 
+        // typetext is used for Joke()
         public static void TypeText(string text)
         {
             for (int i = 0; i < text.Length; i++)
@@ -23,6 +33,7 @@ namespace methods
 
         }
 
+        // first part
         public static void DrawChoice()
         {
             int drawChoice;
@@ -50,6 +61,7 @@ namespace methods
                 DrawClover();
         }
 
+        // different ascii drawings
         static void DrawBus()
         {
             Console.WriteLine("--------------BUS--------------");
@@ -79,23 +91,32 @@ namespace methods
         }
 
 
-
+        // second part which uses typetext
         public static bool Joke()
         {
+            string resp1, resp2;
+
             TypeText("Knock Knock");
-            string resp1 = Console.ReadLine().Trim().ToLower();
-            if ((resp1 != "whos there?") || (resp1 != "who's there") || (resp1 != "whos there") || (resp1 != "who's there?"))
+            resp1 = Console.ReadLine().ToLower().Trim();
+            if (!((resp1 == "whos there?") || (resp1 == "who's there") || (resp1 == "whos there") || (resp1 == "who's there?")))
             {
                 return false;
             }
-            TypeText("Bat.");
-            string resp2 = Console.ReadLine().Trim().ToLower();
-            if ((resp2 != "bat who") || (resp2 != "bat who?"))
+            else 
             {
-                return false;
+                TypeText("Bat.");
+                resp2 = Console.ReadLine().ToLower().Trim();
+                if (!((resp2 == "bat who") || (resp2 == "bat who?")))
+                {
+                    return false;
+                }
+                else
+                {
+                    TypeText("Bat you weren't expecting me today.");
+                    Console.WriteLine();
+                    return true;
+                }
             }
-            TypeText("Bat you weren't expecting me today.");
-            return true;
         }
 
     }
