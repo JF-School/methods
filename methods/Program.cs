@@ -41,7 +41,7 @@ namespace methods
             Console.WriteLine("  1. Bus       2. Apple       3. Sword       4. Clover  ");
             Console.WriteLine();
             Console.Write("Choose: ");
-            while ((!Int32.TryParse(Console.ReadLine(), out drawChoice)) || drawChoice >= 5)
+            while ((!Int32.TryParse(Console.ReadLine(), out drawChoice)) || (drawChoice >= 5) || (drawChoice <= 0))
             {
                 Console.WriteLine("Invalid Input.");
                 Console.WriteLine();
